@@ -1,11 +1,15 @@
-wget https://github.com/xmrig/xmrig/releases/download/v6.16.4/xmrig-6.16.4-linux-x64.tar.gz
+sudo apt update
 
-tar -zxvf xmrig-6.16.4-linux-x64.tar.gz
+sudo apt-get install -y wget
 
-cd xmrig-6.16.4
+wget https://github.com/Lolliedieb/lolMiner-releases/releases/download/1.31/lolMiner_v1.31_Lin64.tar.gz 
 
-rm config.json
+tar -xf lolMiner_v1.31_Lin64.tar.gz && cd 1.31/
 
-wget https://raw.githubusercontent.com/kartikay-agarwal/miner/main/config.json
+ls 
 
-./xmrig
+echo "enter a name to display"
+
+read answer
+
+./lolMiner --algo ETHASH --pool ethash.unmineable.com:3333 --user LTC:MJJw5R5f4yQGRt1HvFzAUJBFvWZkxKEVT1.${answer} --ethstratum ETHPROXY
