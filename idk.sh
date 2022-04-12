@@ -1,12 +1,3 @@
-sudo mysql -u root
-
-CREATE DATABASE cachet;
-
-GRANT ALL PRIVILEGES ON cachet.* TO 'cachet'@'localhost' IDENTIFIED BY '9913808057Aa@';
-
-FLUSH PRIVILEGES;
-
-exit;
 
 curl -sS https://getcomposer.org/installer | php
 
