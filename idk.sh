@@ -1,29 +1,23 @@
-sudo apt update
+sudo mysql -u root
 
-sudo apt-get install -y wget
+CREATE DATABASE cachet;
 
-sudo wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
+GRANT ALL PRIVILEGES ON cachet.* TO 'cachet'@'localhost' IDENTIFIED BY '9913808057Aa@';
 
-sudo dpkg --install chrome-remote-desktop_current_amd64.deb
+FLUSH PRIVILEGES;
 
-sudo apt install -y --fix-broken
+exit;
 
-sudo dpkg --install chrome-remote-desktop_current_amd64.deb
+curl -sS https://getcomposer.org/installer | php
 
-sudo apt install -y --fix-broken
+chmod +x composer.phar
 
-sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'
+mv composer.phar /usr/local/bin/composer
 
-sudo apt install -y xscreensaver
+composer -V
 
-sudo apt install -y task-xfce-desktop
+cd /var/www/html
 
-sudo usermod -a -G chrome-remote-desktop $USER
+git clone https://github.com/CachetHQ/Cachet.git .
 
-echo "please enter a crp from google"
-
-read answer
-
-CRP=`${answer}`
-
-{CRP} --pin=123456
+cp .env.example .env
